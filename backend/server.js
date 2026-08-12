@@ -10,7 +10,7 @@ const seedAdmin = require("./config/seedAdmin");
 
 const app = express();
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.use(cors({
   origin: "http://localhost:5173"
 }));
@@ -32,9 +32,9 @@ const startServer = async () => {
 
     await seedAdmin();
 
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
+    app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
+});
   } catch (error) {
     console.error("Failed to start server:", error.message);
   }
