@@ -12,7 +12,10 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: [
+    "http://localhost:5173",
+    "https://x-exit-dns2die2h-piyush-aryas-projects.vercel.app"
+  ]
 }));
 app.use(express.json());
 
